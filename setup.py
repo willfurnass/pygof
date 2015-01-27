@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import os 
+import os
 
 
 # Utility function to read the README file.
@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name = 'pygof', # Y
-    version = '0.1.0', # Y
+    version = '0.1.1', # Y
     packages = find_packages(),
 
     install_requires = [

@@ -19,9 +19,9 @@ def nash_sutcliffe(obs_v, pred_v):
     pp. 282-290, ISSN 0022-1694, DOI 10.1016/0022-1694(70)90255-6
     """
     _check_comparable(obs_v, pred_v)
-    pred_v_mean = pred_v.mean()
+    obs_v_mean = obs_v.mean()
     return 1. - (np.sum(np.power(obs_v - pred_v, 2.)) /
-                 np.sum(np.power(obs_v - pred_v_mean, 2.)))
+                 np.sum(np.power(obs_v - obs_v_mean, 2.)))
 
 
 def r_squared(vec1, vec2):

@@ -6,8 +6,13 @@ import scipy.stats as sp_stats
 
 
 def _check_comparable(vec1, vec2):
-    if vec1.shape != vec2.shape and vec1.ndim != 1 and vec2.ndim != 1:
-        raise Exception("Arguments must be 1D numpy.ndarrays of the same shape")
+    are_ndarrays = all((isinstance(v, np.ndarray) for v in (vec1, vec2)))
+    are_comparable = are_ndarrays and \
+        (vec1.shape == vec2.shape and vec1.ndim == vec2.ndim == 1)
+
+    if not are_comparable:
+        raise ValueError("Arguments must be 1D numpy.ndarrays " +
+                         "of the same shape")
 
 
 def nash_sutcliffe(obs_v, pred_v):
@@ -28,6 +33,9 @@ def r_squared(vec1, vec2):
     """Aka coefficient of determination (?).
 
     Is square of Pearson product-moment correlation coefficient.
+
+    See http://www.statsoft.com/Textbook/Statistics-Glossary/P/button/p#Pearson%20Correlation
+
     """
     _check_comparable(vec1, vec2)
     return (sp_stats.pearsonr(vec1, vec2)[0]) ** 2.

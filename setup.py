@@ -10,19 +10,17 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = 'pygof', # Y
-    version = '0.1.1', # Y
-    packages = find_packages(),
+    name='pygof',
+    version='0.1.1',
+    packages=find_packages(),
 
-    install_requires = [
+    install_requires=[
         "numpy >= 1.6",
         "scipy >= 0.10"
     ],
 
-    author = 'Will Furnass',
-    author_email = 'will@thearete.co.uk',
-    description='Goodness of fit measures for observation and prediction vectors',
+    author='Will Furnass',
+    author_email='will@thearete.co.uk',
+    description='Goodness of fit metrics for comparing two 1D numpy.ndarrays.',
     license='GPL 3.0',
-    #url='http://pypi.python.org/pypi/pygof/',
-    #long_description=read('README.txt'),
 )

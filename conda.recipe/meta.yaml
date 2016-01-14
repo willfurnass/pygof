@@ -3,24 +3,25 @@ package:
   version: "0.1.1"
  
 source:
-  path: ../
+  path: ..
  
 requirements:
   build:
     - python
     - setuptools
-    - numpy
-    - scipy
+    - numpy >=1.5.1
+    - scipy >=0.11.0
   run:
     - python
-    - numpy
-    - scipy
- 
+    - numpy >=1.5.1
+    - scipy >=0.11.0
+
 test:
-  imports:
-    - pygof
+  requires: 
+    - nose
  
 about:
   home: https://github.com/willfurnass/pygof
   license: GPL 3.0
   license_file: LICENSE.txt
+  summary: Goodness of fit metrics for comparing two 1D numpy.ndarrays
